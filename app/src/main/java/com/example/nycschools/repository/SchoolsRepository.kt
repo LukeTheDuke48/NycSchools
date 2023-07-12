@@ -10,8 +10,8 @@ class SchoolsRepository {
         return  schoolsService.getSchools()
     }
 
-    suspend fun getSatScores(): SatScores{
-        return  schoolsService.getSatScores()
+    suspend fun getSatScores(): List<SatScores> {
+        return schoolsService.getSatScores()
     }
 
 }

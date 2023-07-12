@@ -15,15 +15,20 @@ class SchoolsViewModel : ViewModel() {
 
     private val _schools = MutableStateFlow<List<Schools>>(emptyList())
     val schools: StateFlow<List<Schools>> = _schools
+
     fun fetchSchools() {
         viewModelScope.launch {
             try {
                 val schools = repository.getSchools()
-                _schools.emit(schools)
+                val satScores = repository.getSatScores()
+                val updatedSchools = schools.mapNotNull { school ->
+                    val matchingSatScores = satScores.find { it.dbn == school.dbn }
+                    matchingSatScores?.let { school.copy(satScores = it) }
+                }
+                _schools.emit(updatedSchools)
             } catch (e: Exception) {
                 // Handle the exception
             }
         }
     }
-
 }
