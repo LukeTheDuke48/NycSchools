@@ -11,14 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.nycschools.model.Schools
 import com.example.nycschools.ui.theme.NycSchoolsTheme
 import com.example.nycschools.viewmodel.SchoolsViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
-         val viewModel: SchoolsViewModel by viewModels()
+        val viewModel: SchoolsViewModel by viewModels()
 
         super.onCreate(savedInstanceState)
         setContent {
@@ -35,8 +34,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-            text = "Hello $name!",
-            modifier = modifier
+        text = "Hello $name!",
+        modifier = modifier
     )
 }
 
