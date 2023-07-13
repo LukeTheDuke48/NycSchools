@@ -1,6 +1,5 @@
 package com.example.nycschools.viewmodel
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.nycschools.model.Schools
@@ -16,6 +15,7 @@ class SchoolsViewModel : ViewModel() {
     private val _schools = MutableStateFlow<List<Schools>>(emptyList())
     val schools: StateFlow<List<Schools>> = _schools
 
+    // We match up the DBN from both our endpoints and fill in the SAT score data into each school.
     fun fetchSchools() {
         viewModelScope.launch {
             try {
