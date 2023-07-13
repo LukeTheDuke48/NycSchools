@@ -5,6 +5,7 @@ import com.example.nycschools.model.Schools
 import retrofit2.http.GET
 
 interface SchoolsService {
+    // The traditional way of doing this was not working correctly, So the strings are a bit wacky.
     @GET("s3k6-pzi2.json?" + "$" + "query=SELECT%0A%20%20%60dbn%60%2C%0A%20%20%60school_name%60")
     suspend fun getSchools(): List<Schools>
 
